@@ -6,11 +6,20 @@ var userClickedPattern = [];
 var started = false;
 var level = 0;
 
+$('button').click(function () {
+    if (!started) {
+        nextSequence();
+        started = true;
+    }
+    $('button').hide();
+})
+
 $(document).keydown(function () {
     if (!started) {
         nextSequence();
         started = true;
     }
+    $('button').hide();
 })
 
 $('.btn').on('click', function () {
@@ -87,6 +96,7 @@ function startOver(){
     started = false;
     gamePattern = [];
     userClickedPattern=[];
+    $('button').show();
 }
 
 
