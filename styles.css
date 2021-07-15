@@ -66,3 +66,10 @@ body {
 p{
   color: white;
 }
+
+.pb{
+  font-size: 3rem;
+  font-family: 'Press Start 2P', cursive;
+  margin:  5%;
+  color: #FEF2BF;
+}

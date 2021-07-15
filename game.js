@@ -5,6 +5,7 @@ var userClickedPattern = [];
 
 var started = false;
 var level = 0;
+var personalBest = 0;
 
 $('button').click(function () {
     if (!started) {
@@ -37,7 +38,7 @@ function nextSequence() {
     gamePattern.push(randomChosenColour);
     playSound(randomChosenColour);
     animateRandom(randomChosenColour);
-    console.log(gamePattern)
+    console.log(gamePattern);
 }
 
 function playSound(name) {
@@ -87,15 +88,19 @@ function checkAnswer(currentLevel) {
 
             $('#level-title').text('Game Over, Press Any Key to Restart');
             startOver();
+            if(currentLevel > personalBest){
+                personalBest = currentLevel;
+                $('.personal_best').text(currentLevel);
+            }
         }
     }
 }
 
-function startOver(){
+function startOver() {
     level = 0;
     started = false;
     gamePattern = [];
-    userClickedPattern=[];
+    userClickedPattern = [];
     $('button').show();
 }
 
